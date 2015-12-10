@@ -2,6 +2,18 @@
 // <head> tag here.
 // use the global $vars[html] to get variables from.
 
+/* USAGE OF THE TEMPLATE
+<html>
+    <body>
+        Names of my friends:
+        <ul>
+        <?php foreach ($this->friends as $friend): ?>
+            <li><?=$friend?></li>
+        <?php endforeach; ?>
+        </ul>
+    </body>
+</html>
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
