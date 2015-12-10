@@ -9,10 +9,10 @@ $articles[0] = array(
 'black'			=> true,
 'title' 		=> "",
 'tagline' 		=> "placeholder text 1",
-'video' 		=> FALSE,
-'video_poster'	=> FALSE,
-'video_width'	=> FALSE,
-'video_height'	=> FALSE,
+'video' 		=> false,
+'video_poster'	=> false,
+'video_width'	=> false,
+'video_height'	=> false,
 'text'			=> "Placeholder text, Placeholder text,Placeholder text,Placeholder text"
 );
 
@@ -61,5 +61,3 @@ $stavanger = array(
 'text'			=> file_get_contents('texts/stavanger-en.html')
 );
 */
-
-?>

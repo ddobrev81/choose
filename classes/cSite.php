@@ -6,19 +6,25 @@
  */
 class cSite
 {
+    private $html;
     private $headers;
     private $footers;
     private $page;
     public function __construct()
     {
+        $this->html = array();
         $this->headers = array();
         $this->footers = array();
     }
     public function __destruct()
     {
     }
+    // rework render() to use the templates
     public function render()
     {
+        foreach ($this->html as $html) {
+            include $html;
+        }
         foreach ($this->headers as $header) {
             include $header;
         }
@@ -26,6 +32,10 @@ class cSite
         foreach ($this->footers as $footer) {
             include $footer;
         }
+    }
+    public function addHtml($file)
+    {
+        $this->html[] = $file;
     }
     public function addHeader($file)
     {

@@ -6,6 +6,7 @@ function __autoload($class) {
 }
 
 function initialise_site(cSite $site) {
+  $site->addHtml("./includes/header.php");
 	$site->addHeader("./includes/header.php");
 	$site->addFooter("./includes/footer.php");
 }
