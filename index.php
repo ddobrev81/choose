@@ -1,4 +1,5 @@
-<?php #index.php
+<?php
+#index.php
 
 // Turn reporting on.
 error_reporting(E_ALL ^ E_NOTICE);
@@ -7,7 +8,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 include 'inc/include.php';
 
 // Routing.
-if(!isset($_GET['page'])) {
+if (!isset($_GET['page'])) {
     $_GET['page'] = 'main';
 }
 // move the controller so he can prepare $vars early

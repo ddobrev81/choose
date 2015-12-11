@@ -6,7 +6,7 @@
  */
  class Controller
  {
-     private $cContent = array();
+     private $vars = array();
 
      public function __construct($page)
      {
@@ -21,8 +21,8 @@
         }
      }
 
-     public function getContent()
+     public function getVars()
      {
-         return $this->cContent;
+         return $this->vars;
      }
  }
