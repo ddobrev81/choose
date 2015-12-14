@@ -5,11 +5,12 @@ function __autoload($class) {
     require_once ($filename);
 }
 
-function initialise_site(cSite $site) {
-  $site->addHtml("./includes/header.php");
-	$site->addHeader("./includes/header.php");
-	$site->addFooter("./includes/footer.php");
-}
+// not goona use this, use cPage constructor instead.
+// function initialise_site(cSite $site) {
+//   $site->addHtml("./includes/header.php");
+// 	$site->addHeader("./includes/header.php");
+// 	$site->addFooter("./includes/footer.php");
+// }
 
 function absolute_url($urlpage='index.php?page=main') {
     $url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);

@@ -13,7 +13,7 @@ if (!isset($_GET['page'])) {
 }
 // move the controller so he can prepare $vars early
 $controller = new Controller($_GET['page']);
-$content = $controller->getContent();
+$vars = $controller->getVars();
 
 // make cSite construtor use the template engine. $vars should be ready at this moment and should be passed to the constructor
 $site = new cSite(); // pass $vars

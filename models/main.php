@@ -1,11 +1,15 @@
 <?php
 // build $vars here to be passed to the templates
-$vars_html = array();
-$vars_html['title'] = 'Choose';
-$vars_html['url'] = 'http://choose.com';
+$vars = array();
+$vars['html']['title'] = 'Choose';
+$vars['html']['url'] = 'http://choose.com';
 
-$vars_header = array();
-$vars_header['title'] = 'Choose';
+$vars['header']['android'] = isAndroid();
+
+$vars['body'] = ;
+
+$vars['footer'] = ;
+
 
 
 // $template = new Template();
