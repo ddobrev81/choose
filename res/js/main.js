@@ -1,9 +1,8 @@
 var animationSpeed = 500;
 	videos = new Array();
-	// url = 'http://maersk-norway.propeoplelabs.com/';
-	url = 'http://chosenby.maerskoil.com/';
+	url = 'http://choose.com/';
 	lang = "en";
-	otherLang = "http://valgtav.maerskoil.com/";
+	otherLang = "";
 	first = true;
 
 
@@ -17,11 +16,11 @@ $(function() {
 				addOverlay($('#article' + id));
 			} else {
 				removeOverlay($('.active'));
-			}			
+			}
 		} else {
 			first = false;
 		}
-		
+
 	});
 
 	var offset = 76;
@@ -68,9 +67,9 @@ $(function() {
 
 	}
 
-	
 
-	setVideoHeight();	
+
+	setVideoHeight();
 
 	$('#burger-icon').click(function() {
 		toggleMenu();
@@ -121,14 +120,14 @@ $(function() {
 	});
 
 	$('.scroll').bind('click',function(e){
-        var elem = $(this);     
+        var elem = $(this);
         	topOffset = 0;
 
         $('#article-list article').each(function(index) {
         	if($(this).attr('data-order') < elem.attr('data-order')) {
 
         		topOffset += $(this).height();
-        	}     		
+        	}
         });
 
         $('#wrapper').stop().animate({
@@ -156,7 +155,7 @@ function pauseVideos() {
 		var video = videos[i]['video'];
 		if(video.paused == false) {
 			video.pause();
-		}		
+		}
 	};
 }
 
@@ -164,7 +163,7 @@ function setVideoHeight() {
 	for (var i = 0; i < videos.length; i++) {
 		var ratio = videos[i]['height'] / videos[i]['width'];
 			width = $('.graphic').width();
-		videos[i]['video'].height = width * ratio;		
+		videos[i]['video'].height = width * ratio;
 	};
 }
 
@@ -191,15 +190,15 @@ function addOverlay(elem) {
 		var articleActive = false;
 		if($('.sidebar.article.active').length > 0) {
 			articleActive = $('.sidebar.article.active');
-		} 
-		
+		}
+
 
 	if(elem.hasClass('article')) {
 
 		if (window.location.href.substring(url.length) != elem.attr('id').substring(7)) {
 			window.history.pushState(null, elem.find('.title').html(), url + elem.attr('id').substring(7));
 			$('#flag-icon a').attr('href', otherLang + elem.attr('id').substring(7));
-		}		
+		}
 
 		if(articleActive) {
 			if(elem.attr('id') != articleActive.attr('id')) {
@@ -207,8 +206,8 @@ function addOverlay(elem) {
 				toTop(elem);
 				setTimeout(function() {
 					moveOut(menu);
-					moveOut(shortcuts);					
-					articleActive.removeClass('top middle active');				
+					moveOut(shortcuts);
+					articleActive.removeClass('top middle active');
 				}, animationSpeed);
 			} else {
 				menu.removeClass('active');
@@ -217,19 +216,19 @@ function addOverlay(elem) {
 				$('#article-overlay').fadeOut(animationSpeed);
 				setTimeout(function() {
 					moveOut(menu);
-					moveOut(shortcuts);		
-					moveOut(contact);						
+					moveOut(shortcuts);
+					moveOut(contact);
 				}, animationSpeed);
 			}
 		} else {
 			toTop(elem);
 			setTimeout(function() {
 				moveOut(menu);
-				moveOut(shortcuts);	
-				moveOut(contact);									
+				moveOut(shortcuts);
+				moveOut(contact);
 			}, animationSpeed);
 		}
-		
+
 
 	} else if(elem.attr('id') == 'menu') {
 
@@ -237,7 +236,7 @@ function addOverlay(elem) {
 
 			$('#article-overlay').fadeIn(animationSpeed);
 
-			if(shortcutsActive) {				
+			if(shortcutsActive) {
 				articleActive.removeClass('middle');
 				shortcuts.addClass('middle');
 				shortcuts.removeClass('top');
@@ -258,7 +257,7 @@ function addOverlay(elem) {
 			}, animationSpeed);
 
 		}
-		
+
 		elem.addClass('active top');
 
 	} else if(elem.attr('id') == 'shortcuts') {
@@ -267,24 +266,24 @@ function addOverlay(elem) {
 			if(articleActive) {
 				if(menu.hasClass('top')) {
 					moveDown(menu);
-				}				
+				}
 				moveDown(articleActive);
 			} else {
 				moveDown(menu);
-			}			
-		} 
+			}
+		}
 		toTop(elem);
-		
+
 	} else if(elem.attr('id') == 'contact') {
 
 		if(articleActive) {
 			if(menu.hasClass('top')) {
 				moveDown(menu);
-			}				
+			}
 			moveDown(articleActive);
 		} else {
 			moveDown(menu);
-		}	
+		}
 		toTop(elem);
 
 
@@ -304,7 +303,7 @@ function removeAllOverlays() {
 		var articleActive = false;
 		if($('.sidebar.article.active').length > 0) {
 			articleActive = $('.sidebar.article.active');
-		} 
+		}
 
 	window.history.pushState(null, null, url);
 	$('#flag-icon a').attr('href', otherLang);
@@ -338,8 +337,8 @@ function removeOverlay(elem) {
 		var articleActive = false;
 		if($('.sidebar.article.active').length > 0) {
 			articleActive = $('.sidebar.article.active');
-		} 
-		
+		}
+
 
 	if(elem.hasClass('article')) {
 
@@ -348,10 +347,10 @@ function removeOverlay(elem) {
 		$('#article-overlay').fadeOut(animationSpeed);
 		setTimeout(function() {
 			moveOut(elem);
-		}, animationSpeed);	
+		}, animationSpeed);
 
-		window.history.pushState(null, null, url);	
-		$('#flag-icon a').attr('href', otherLang);	
+		window.history.pushState(null, null, url);
+		$('#flag-icon a').attr('href', otherLang);
 
 	} else if(elem.attr('id') == 'menu') {
 
@@ -362,8 +361,8 @@ function removeOverlay(elem) {
 		$('#article-overlay').fadeOut(animationSpeed);
 		setTimeout(function() {
 			moveOut(menu);
-			moveOut(shortcuts);	
-			moveOut(contact);								
+			moveOut(shortcuts);
+			moveOut(contact);
 		}, animationSpeed);
 
 	} else if(elem.attr('id') == 'shortcuts') {
@@ -374,8 +373,8 @@ function removeOverlay(elem) {
 		setTimeout(function() {
 			moveOut(shortcuts);
 		}, animationSpeed);
-		
-		
+
+
 	} else if(elem.attr('id') == 'contact') {
 
 		contact.removeClass('active');
@@ -384,8 +383,8 @@ function removeOverlay(elem) {
 		setTimeout(function() {
 			moveOut(contact);
 		}, animationSpeed);
-		
-	} 	
+
+	}
 
 }
 
@@ -401,7 +400,7 @@ function moveDown(elem) {
 function moveUp(elem) {
 	if(elem.hasClass('middle')) {
 		elem.removeClass('middle');
-		elem.addClass('top');		
+		elem.addClass('top');
 	} else {
 		elem.addClass('middle');
 	}
@@ -414,7 +413,7 @@ function moveOut(elem) {
 }
 
 function ShareOnTwitter() {
-    var title = 'Maersk Oil Norway Choices';
+    var title = 'Choose';
     var url = location.href;
     var maxLength = 140 - (url.length + 1);
     if (title.length > maxLength) {
@@ -425,8 +424,8 @@ function ShareOnTwitter() {
 }
 function ShareOnFacebook() {
 	window.open(
-      'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href), 
-      'facebook-share-dialog', 
-      'width=626,height=436'); 
+      'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
     return false;
 }
