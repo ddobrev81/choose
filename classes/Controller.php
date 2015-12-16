@@ -4,13 +4,13 @@
  *
  * @author Dodo
  */
- class Controller
- {
-     private $vars = array();
+class Controller
+{
+    private $vars = array();
 
-     public function __construct($page)
-     {
-         switch ($page) {
+    public function __construct($page)
+    {
+        switch ($page) {
             case 'main':
                 include 'models/main.php';
                 break;
@@ -19,10 +19,10 @@
                 include 'models/main.php';
                 break;
         }
-     }
+    }
 
-     public function getVars()
-     {
-         return $this->vars;
-     }
- }
+    public function getVars()
+    {
+        return $this->vars;
+    }
+}

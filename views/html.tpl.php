@@ -1,20 +1,3 @@
-<?php
-// <head> tag here.
-// use the global $vars[html] to get variables from.
-
-/* USAGE OF THE TEMPLATE
-<html>
-    <body>
-        Names of my friends:
-        <ul>
-        <?php foreach ($this->friends as $friend): ?>
-            <li><?=$friend?></li>
-        <?php endforeach; ?>
-        </ul>
-    </body>
-</html>
-*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +10,11 @@
     <meta name="viewport" content="width=device-width">
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<!--[if lt IE 9]>
-		<script src="<?php echo $url ?>js/vendor/html5shiv.js"></script>
+		<script src="<?php echo $vars['html']['url']; ?>res/js/vendor/html5shiv.js"></script>
 	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="<?php echo $url ?>css/vendor/reset.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $url ?>fonts/fonts.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $url ?>css/vendor/royalslider.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $url ?>css/style.css">
-	<link rel="apple-touch-icon" href="<?php echo $url ?>img/icon.png"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo $vars['html']['url']; ?>res/css/vendor/reset.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $vars['html']['url']; ?>res/fonts/fonts.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $vars['html']['url']; ?>res/css/vendor/royalslider.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $vars['html']['url']; ?>res/css/style.css">
+	<link rel="apple-touch-icon" href="<?php echo $vars['html']['url']; ?>res/img/icon.png"/>
 </head>

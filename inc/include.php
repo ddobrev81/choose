@@ -1,29 +1,26 @@
 <?php
 
-function __autoload($class) {
-    $filename = "./classes/".$class.".php";
-    require_once ($filename);
+function __autoload($class)
+{
+    $filename = './classes/'.$class.'.php';
+    require_once $filename;
 }
 
-// not goona use this, use cPage constructor instead.
-// function initialise_site(cSite $site) {
-//   $site->addHtml("./includes/header.php");
-// 	$site->addHeader("./includes/header.php");
-// 	$site->addFooter("./includes/footer.php");
-// }
-
-function absolute_url($urlpage='index.php?page=main') {
+function absolute_url($urlpage = 'index.php?page=main')
+{
     $url = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
     $url = rtrim($url, '/\\');
-    $url .='/'.$urlpage;
+    $url .= '/'.$urlpage;
+
     return $url;
 }
 
-function isAndroid(){
-  $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
-  if (stripos($userAgent, 'android') !== FALSE) {
-    return TRUE;
-  } else {
-    return FALSE;
-  }
+function isAndroid()
+{
+    $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
+    if (stripos($userAgent, 'android') !== false) {
+        return true;
+    } else {
+        return false;
+    }
 }

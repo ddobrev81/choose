@@ -10,6 +10,7 @@ class Template
             // Check here whether this directory really exists
             $this->template_dir = $template_dir;
         }
+        // add errorchecking
     }
     public function render($template_file)
     {
